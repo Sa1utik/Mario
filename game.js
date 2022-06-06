@@ -1,4 +1,4 @@
-//IMPORTANT: Make sure to use Kaboom version 0.5.0 for this game by adding the correct script tag in the HTML file.
+//IMPORTANT: Kaboom version 0.5.0 Author KotoMurzik and GuarD
 
 kaboom({
   global: true,
@@ -44,7 +44,7 @@ loadSprite('blue-surprise', 'bEE5TKd.png')
 
 scene("game", ({ level, score }) => {
   layers(['bg', 'obj', 'ui'], 'obj')
-
+// Levels
   const maps = [
     [
       '                                      ',
@@ -69,9 +69,21 @@ scene("game", ({ level, score }) => {
       'z                        x x x x  x   -+z',
       'z               ^   ^  x x x x x  x   ()z',
       '=========================================',
+    ],
+    [
+      '                                        =',
+      '                                        z',
+      '                                        z',
+      '                                        z',
+      '                                        z',
+      '   =%*%%=%              x%%*            z',
+      '                                        z',
+      '                                      -+z',
+      '           ^^^^  x    x   ====        ()z',
+      '=================   x        =============',
     ]
   ]
-
+// Config
   const levelCfg = {
     width: 20,
     height: 20,
@@ -106,7 +118,7 @@ scene("game", ({ level, score }) => {
   ])
 
   add([text('level ' + parseInt(level + 1) ), pos(40, 6)])
-  
+// functions  
   function big() {
     let timer = 0
     let isBig = false
@@ -204,10 +216,13 @@ scene("game", ({ level, score }) => {
 
   keyDown('left', () => {
     player.move(-MOVE_SPEED, 0)
+    DIRECTION = 'left';
+   
   })
-
   keyDown('right', () => {
     player.move(MOVE_SPEED, 0)
+    DIRECTION = 'right';
+ 
   })
 
   player.action(() => {
